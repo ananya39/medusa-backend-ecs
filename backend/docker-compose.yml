@@ -1,0 +1,25 @@
+services:
+  medusa-backend:
+    build:
+      context: ./my-medusa-store     # Points to the folder
+      dockerfile: Dockerfile         # Explicitly name the file
+    ports:
+      - "9000:9000"
+    environment:
+      - DATABASE_URL=postgres://postgres:myadmin123@db:5432/medusa-db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: myadmin123
+      POSTGRES_DB: medusa-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
