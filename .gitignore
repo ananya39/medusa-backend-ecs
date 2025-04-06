@@ -1,0 +1,20 @@
+# Node.js
+backend/node_modules/
+backend/.env
+backend/.DS_Store
+
+# Terraform
+terraform/.terraform/
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/.terraform.lock.hcl
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Ignore AWS credentials if added
+.aws/
